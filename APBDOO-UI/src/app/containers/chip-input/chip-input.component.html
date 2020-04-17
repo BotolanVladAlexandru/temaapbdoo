@@ -1,0 +1,17 @@
+<form [formGroup]="inputChipForm">
+  <mat-form-field class="example-full-width">
+    <mat-label>Categories</mat-label>
+    <mat-chip-list #chipList aria-label="Location selection" formControlName="inputChip">
+      <mat-chip *ngFor="let category of categories" [selectable]="selectable"
+                [removable]="removable" (removed)="remove(category)">
+        {{category.name}}
+        <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+      </mat-chip>
+      <input [placeholder]="placeholder"
+             [matChipInputFor]="chipList"
+             [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+             [matChipInputAddOnBlur]="addOnBlur"
+             (matChipInputTokenEnd)="add($event)">
+    </mat-chip-list>
+  </mat-form-field>
+</form>

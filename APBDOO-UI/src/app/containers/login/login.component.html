@@ -1,0 +1,22 @@
+<div class="content">
+  <form [formGroup]="loginForm">
+    <mat-form-field class="example-full-width">
+      <mat-label>Username</mat-label>
+      <input matInput placeholder="" value="" formControlName="username">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Password</mat-label>
+      <input matInput placeholder="" type="password" value="" formControlName="password">
+    </mat-form-field>
+  </form>
+
+
+  <button (click)="checkLogin()" mat-stroked-button color="primary" >LOG IN</button>
+  <ng-container *ngIf="invalidCredentials">
+    <p style="color: red">Sorry the credentials you are using are invalid</p>
+  </ng-container>
+  <ng-container *ngIf="invalidForm">
+    <p style="color: red">Please complete all fields</p>
+  </ng-container>
+</div>
